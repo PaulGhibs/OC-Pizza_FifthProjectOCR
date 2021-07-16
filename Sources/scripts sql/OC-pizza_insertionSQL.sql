@@ -1,17 +1,6 @@
 START TRANSACTION;
 
 -- -----------------------------------------------------
--- Table `Adresse`
--- -----------------------------------------------------
-INSERT INTO `oc-pizza`.Adresse
-	(`numero`, `rue`, `ville`)
-VALUES
-	(1, '11', '13', '17'),
-	(2, 'Lafayette', 'Rodier', 'Guichard'),
-	(3, 'Paris', 'Paris', 'Paris')
-;
-
--- -----------------------------------------------------
 -- Table `ocpizza`.`client`
 -- -----------------------------------------------------
 INSERT INTO `oc-pizza`.Client
@@ -25,7 +14,7 @@ VALUES
 -- -----------------------------------------------------
 -- Table `ocpizza`.`adresse`
 -- -----------------------------------------------------
-INSERT INTO `ocpizza`.`adresse`
+INSERT INTO `oc-pizza`.Adresse
 	(`refAdresse`, `numero`, `rue`, `ville`, `codePostal`)
 VALUES
 	(1, '7', 'rue Poissonière', 'Paris', '75002'),
@@ -38,11 +27,11 @@ VALUES
 -- Table `ocpizza`.`restaurant`
 -- -----------------------------------------------------
 INSERT INTO `oc-pizza`.Restaurant
-	(`refRestaurant`, `refAdresse`, `refNotif`, `faq`, `nombre employés`)
+	(`refRestaurant`, `refAdresse`, `refNotif`, `faq`, `nombre employés`, `idCommande`)
 VALUES
-	(1, '0173456989', '#58979', 'Lorem Ipsum questionate', '2'),
-	(2, '0323456189', '#28098', 'Lorem Ipsum questionate', '6'),
-	(3, '0623656739', '#78639', 'Lorem Ipsum questionate', '2')
+	(1, '0173456989', '#58979', 'Lorem Ipsum questionate', '2', '1790' ),
+	(2, '0323456189', '#28098', 'Lorem Ipsum questionate', '6','7090'),
+	(3, '0623656739', '#78639', 'Lorem Ipsum questionate', '2', NULL)
 	;
 
 -- -----------------------------------------------------
@@ -51,8 +40,8 @@ VALUES
 	INSERT INTO `oc-pizza`.Commande
 		(`idCommande`, `dateCommande`, `valeurPanier`, `reduction`, `livraison`)
 	VALUES
-		(1, '2018-07-14 12:46:28', '25,00', NULL, 'TRUE'),
-		(2, '2018-07-13 13:02:12', '11,00', NULL, 'FALSE')
+		('1790', '2018-07-14 12:46:28', '25,00', NULL, 'TRUE'),
+		('7090', '2018-07-13 13:02:12', '11,00', NULL, 'FALSE')
 	;
 
 -- -----------------------------------------------------
